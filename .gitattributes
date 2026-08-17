@@ -1,0 +1,11 @@
+# Learning backend files
+learning/oop/**/*.js linguist-language=JavaScript
+
+# Define backend files as TypeScript/JavaScript
+apps/api/**/*.ts linguist-language=TypeScript
+apps/api/**/*.js linguist-language=JavaScript
+
+# Define frontend files as TypeScript/React
+apps/web/**/*.tsx linguist-language=TypeScript
+apps/web/**/*.ts linguist-language=TypeScript
+

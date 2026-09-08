@@ -1,3 +1,5 @@
+// Code is written with the help of AI code assistant
+
 const net = require('net');
 const readline = require('readline');
 

@@ -17,7 +17,6 @@
     - If login is successful, client will display the message to the user
 
 
-
 # Challenges:
 - What to show on commond promt after running the application
 - Username and password input

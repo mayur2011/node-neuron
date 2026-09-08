@@ -1,0 +1,531 @@
+1. Node JS (Java Script)
+2. Javascript (in Browser)
+3. React / JSX
+	Web-application
+	
+
+Primary Storage devices
+Secondary Storage devices
+
+
+	
+video-2 ():
+0 - means false
+non-zero (1,10,-34) - means true
+
+0.0 - means also false
+
+null - means also false
+
+undefined = false
+
+Infinity = true
+
+NaN = false (not a number)
+
+
+x+y = z concatenation if x is string
+
+x*y = z multiplication if x is string
+x/y = z devition if x is string
+x-y = z substration if x is string
+z=y%x;  modulo will happen
+
+
+var x="10";
+var y=3;
+var z=x-y;
+console.log(z);
+
+if(z===7) --> true scenario, z is of number type
+
+-------------------------
+var x="10";
+var y=3;
+var z=x+y; --> concatenation because \\
+var z=Number(x)+y; -->  
+console.log(z);
+-------------------------
+String contains text
+if + --> then concatenation
+else  --> NaN (not a number)
+
+-------------------------
+var x=1;
+while(x<=5) {
+console.log(x);
+}
+
+
+var x;
+for(x=1;x<=5;x++) console.log(x);
+
+
+- do-while loop example (it runs once)
+
+- for (first statemnet; x<=3; last statement)
+
+-------------------------------------------------- 
+video-3 | Functions
+
+
+local variable
+global variables
+
+
+Open-Questions:
+1. console ?
+2. [Function: Sam] ?
+
+In javascript functions are looked up as Object.
+
+
+Pointer/Reference variable: variable stores the address is what we consider pointer.
+- example of function sam which is a pointer (not a function)
+
+- We have passed the address of other function to given function.
+- passing address of one function to another 
+I called
+
+Functional programming ???
+
+-------------------------------------------------- 
+video-4 | Functions
+
+function to be used to create a class or object
+function to be used to create a function
+
+var a =new abcd();  // a is a pointer here and abcd() is an object
+
+function Toy(){
+this.price=1000; //this pointer is provided by the compiler which represents the object whose property is invoked.
+}
+
+price is a property which is publically available not private.
+
+t2
+t3 
+proof that these are pointers/reference variables because they are holding the address, and not object
+
+**** ---|| Maintain Low Profile ||--- ****
+
+var t3=t2; -- minute 17
+
+## Dynamically introducing property, t.brand = "Lego";  (20:36 minute)
+
+**** -|| Javascript is not for average programmer, they will design framework
+
+## Ways to make functions
+----------------------
+1. named function
+function doSomething(x,y)
+{
+return x+y;
+}
+var a = doSomething; //
+
+
+2. 
+
+var k=function doSomething(x,y)
+{
+return x+y;
+}
+// console.log(doSomething(10,20)); //wrong
+console.log(k(10,20));
+
+
+
+3. Anonymous function
+var kk=function(x,y)
+{
+return x+y;
+}
+console.log(kk(10,20));
+
+
+// Lambda expression / Array function / fat arrow function
+var kk=(x,y)=>x+y;
+console.log("Total is",kk(100,300));
+
+var mm=x=>x*x;
+console.log("Square of 5 is :", mm(5));
+
+//earlier we used to something like below
+var kk=function(x,y)
+{
+return x+y;
+}
+
+var mm = function(x)
+{
+return x*x;
+}
+
+-----
+
+function add(x,y,z)
+{
+console.log(arguments);
+console.log(arguments.length);
+var i;
+var total =0;
+for(i-0;i<arguments.length;i++){
+console.log(arguments[i]);
+total = total + arguments[i];
+}
+return total;
+}
+console.log("Total is ", add(10,20,30));
+------
+
+## type identification
+
+function sam()
+{
+}
+var x=10
+var y="god is great";
+var z="Ujjain is the city of GODS";
+var m=true;
+function abcd()
+{
+}
+
+var b=new abcd();
+var c;
+console.log(typeof(same));
+console.log(typeof(x));
+
+console.log(typeof(y));
+console.log(typeof(z));
+console.log(typeof(m));
+console.log(typeof(a));
+console.log(typeof(b));
+console.log(typeof(c));
+m=20;
+console.log(typeof(m));
+
+-------------------------------------------------- 
+video-5 | Functions - Part 3
+
+Varities of javascript
+*** Learn to make framework ???
+
+var a = [10,20,30];
+for(var i=0;i<a.length;i++) // a jisko point karra hai uski length
+{
+console.log(a[i]);
+}
+
+// Functions example with array
+
+a[3] =40;   // dynamically possible some magic .. we will understand
+a.push(50); // some function in background 
+console.log(a);
+
+## Spread Syntax
+assume...
+function add(x,y,z,a,b,c)
+{
+return x+y+z+a+b;
+}
+
+var a=[10,20,30,40,50];
+c.l(add(a[0],a[1],a[2]));
+
+// OR Spread syntax while calling the function
+console.log(add(...a)); 
+//after three dots you pass the argument which will be a collection
+
+console.log(add(5,...a)); 
+
+---
+
+function add(x,y,z,a,b,c)
+{
+return x+y+z+a+b;
+}
+function sam()
+{
+var i= add(...arguments);
+return i;
+}
+
+console.log(sam(10,20,30,40,50,60));
+
+*** you should become a skilled programmer
+---
+function sam(x,y)
+{
+return x+y;
+}
+function tom(p,q)
+{
+return t(p,q);
+}
+
+c.l(tom(sam,100,200)); //
+
+---
+function doSomething(f,x,y)
+{
+return f(x,y);
+}
+
+c.l(doSomething(function(p,q){},10,20); 
+//function's address will be recieved by f and 10, 20 will god
+
+next...
+c.l(doSomething(function(p,q){
+return p*q;
+},15,200); 
+// we passed an anonymous function
+
+--- next
+
+
+function justDoIt()
+{
+function justCootIt(){
+c.l("Cool, very cool stuff");
+}
+return justCootIt;
+}
+
+var a = justDoIt()
+a();
+// calling function which return another function in the response
+---
+
+function justDoIt()
+{
+return function(){  // function returning function
+c.l("Cool, very cool stuff");
+}
+}
+
+var a = justDoIt()
+a();
+// calling function which return another function in the response
+
+---
+function justDoIt()
+{
+return ()=>{  
+c.l("Cool, very cool stuff");
+}
+}
+
+var a = justDoIt()
+a();
+// flat arrow function, a gets address of anonymous function and got called ()
+
+---
+function justDoIt()
+{
+return (x,y){  // function returning function
+c.l("Cool things ",x+y);
+}
+}
+
+var a = justDoIt()
+a(10,20);
+// ...
+
+---
+// pass only two arguments, and third param should consider 0 for last one
+
+function add(x,y,z)
+{
+return x+y,z;
+}
+
+function whatever(f)
+{
+return function(p,q){ //anonymous
+return f(p,q,0);
+}
+}
+
+addIt(10,20)
+
+minute 00:30:10
+
+minute 00:31:55
+
+-------------------------------------------
+video-7 | Arrays
+
+
+
+video-7 | Arrays - Part 2
+delete x[1]; // will not release the space
+
+
+
+video-9 | Arrays - Part 3
+
+examples:
+## Array to be used as Stack
+1. Push - LIFO (Stack functionality)
+var x = new Array();
+x.push(10);
+x.push(100);
+x.push(1000);
+// in sequence
+
+2. POP - Last In First Out
+var x = new Array();
+x.push(10);
+x.push(100);
+x.push(1000);
+
+var a=x.pop()
+console.log(a); //element which was pushed last gets poped.
+
+## Array to be as Queue
+var q= new Array();
+q.push(100);
+q.push(10);
+x.push(30);
+
+e.g. screen sharing where each frames are being sent to receiver's end
+
+## unshift explaination
+
+## splice concept
+var j = 
+
+
+## slice concept
+//
+var x = [10,20,30];
+var y = x.slice(3); //0-2 will be picked
+var z = 
+
+var x = [5,10,32,44,76,99];
+var y = x.sort(); // sorting like alphabets
+console.log(x);
+
+var a = ["gopal", "amit"] ;
+var t = a.sort(); // alphabets sorting
+
+
+function myComparator(i,j)
+{
+if(i==j) return 0;
+if(i<j) return -1;
+if (i>j) return 1;
+}
+var x = [5,10,32,44,76,99];
+var y = x.sort(myComparator);
+console.log(y);
+// 
+try descending order  by swapping above condition
+
+var x = [5,10,32,44,76,99];
+var y = x.sort(function(i,j){return i-j;});
+
+var y = x.sort(function(i,j){return j-i;}); // for descending order
+------------------------------------------------------------------------
+
+video-10 | Arrays - Part 4
+
+## Math.random()
+
+## 
+var x = [10,20,30,40];
+x.sort(function(){
+return .5-Math.random(); //positive number
+});
+
+## copyWithin(4,7); 
+10,20,30,40,50,60,70,80,90,100
+
+10,20,30,40,70,80,90,100
+
+## copyWithin(2,5,7);
+
+
+## every name function - isEven // evaluate all numbers
+var x = [10,20,30,40,50,60,70,80,90,100];
+function doSomething(n)
+{
+console.log('doSomething got called with argument : '+n);
+return n%2==0; //true for even value
+}
+
+console.log(x.every(doSomething)); //run for every single element until its false else keep running for true 
+every name function will return false or true (because hamara function true or false return karenga), the moment false is received then it will stop calling
+
+## fill(300) function replaces all element with given number
+
+## fill(300,2,7) // 2,3,4,5 index will be replaced by 300, 7 will be excluded
+
+## value > 50 return true or false 
+function abcd(n){
+return n>50;
+}
+
+## x.filter(abcd); // create a filter
+var y  = x.filter(abcd);
+console.log(x);
+console.log(y);
+
+## x.find(abcd); // will find the value greater, find it and return 
+
+## x.findIndex(abcd); //will find the index of the value
+
+var x = [10,30,20,50,30,40,50,30,40,50]
+## x.indexOf(30); // index of given number, -1 for not found
+## x.indexOf(30,3); // will start from 3 index of given number, -1 for not found
+## x.lastIndexOf(30); // started search from right side
+## x.lastIndexOf(30,4); // started search from right side
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

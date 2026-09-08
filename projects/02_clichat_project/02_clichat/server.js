@@ -24,11 +24,11 @@ class DataModel {
         return user;
     }
 
-    getLoggedInUsers(username) {
+    getLoggedInUsers() {
         let loggedInUsers = [];
         for(let e=0;e<this.users.length;e++){
-            if(this.users[e].loggedIn === true){
-                loggedInUsers.push(this.users[e]);
+            if(this.users[e].loggedIn){
+                loggedInUsers.push(this.users[e].username);
             }
         }
         return loggedInUsers;
@@ -41,31 +41,29 @@ const model = new DataModel();
 // load users from users.data
 function populateDataStructure() {
     let usersJSONString = fs.readFileSync('users.data', 'utf-8');
-    let usersObj = JSON.parse(usersJSONString);
-    usersObj.users.forEach(function(user){
+    let users = JSON.parse(usersJSONString).users;
+    users.forEach(function(user){
         user.loggedIn = false;
         user.id = 0;
         model.users.push(user);
     });
 }
 
-function processRequest(requestObject, socket) {
-    // TODO: Process the request object
+function processRequest(requestObject) {
+    // Process the request object
     // And to return the response which we need to send back to the client
     // We need a reference to the socket object
     // because in order to send the response back to the client, we need to write socket.write() or something like that
-    console.log(requestObject);
-    if(requestObject.action === 'login'){
-        // TODO: Process login action
+    if(requestObject.action == 'login'){
+        // Process login action
         let username = requestObject.username;
         let password = requestObject.password;
+        
         let user = model.getUserByUsername(username);
+        let success = false;
         if(user){
-            if(user.password === password) {
-                let success = true;
-                // TODO: Process login action
-
-
+            if(password == user.password) {
+                success = true;
             }
         }
 
@@ -81,12 +79,11 @@ function processRequest(requestObject, socket) {
 
             response.result = {
                 "username": user.username,
-                "id": user.userID
+                "id": user.id
             };
-
         } else {
-            response.error = 'Invalid username or password';
-            response.result = null;
+            response.error = 'Invalid username / password';
+            response.result = "";
         }
         
         // send response back to client
@@ -96,14 +93,21 @@ function processRequest(requestObject, socket) {
     if(requestObject.action === 'getUsers'){
         let response = new Response();
         response.action = requestObject.action;
-        response.success = true;
-        response.error = "";
         response.result = model.getLoggedInUsers();
         requestObject.socket.write(JSON.stringify(response));
     }
 
     if (requestObject.action === 'logout') {
-        // TODO: Process logout action
+        // Process logout action
+        console.log("Logout action received");
+        
+        let response = new Response();
+        response.action = requestObject.action;
+        response.success = true;
+        response.error = "";
+        response.result = "";
+        requestObject.socket.write(JSON.stringify(response));
+        requestObject.socket.end();
     }
 }
 
@@ -121,17 +125,19 @@ let server = net.createServer(function(socket) {
 
     try{
         processRequest(requestObject);
-    }catch(error){
-        console.log(error);
+    }catch(e){
+        console.log(e);
     }
-    
    });
 
    socket.on('end', function() {
     console.log('Client disconnected'); // more programming is required
    });
 
-   socket.on('error', function() {});
+   socket.on('error', function() {
+    console.log('Client error'); // more programming is required
+   });
+
    console.log('Client connected');
 });
 

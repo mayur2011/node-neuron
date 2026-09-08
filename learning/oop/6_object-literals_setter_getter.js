@@ -3,12 +3,14 @@ _wattage: 0,
 
 set wattage(w){
 	console.log("Setter got called");
-	if(w>=0 && w<=240) _wattage=w; else _wattage=60;
+	
+	if(w>=0 && w<=240) this._wattage=w; 
+	else _wattage=60;
 },
 
 get wattage(){
 	console.log("Getter got called");
-	return _wattage;    //this is not needed in case of object literal
+	return this._wattage;    //this is not needed in case of object literal
 }
 };
 
@@ -18,10 +20,11 @@ console.log(bulb.wattage);  // this will invoke get wattage related code.
 
 
 /*
+this keyword to be used before the _wattage otherwise 
+on this line "bulld.wattage=100;" this _wattage will become global variable.
+
 Set & Get concept is applied to object literals
 
 - if property is written with _ like (_wattage) then that will not be accessed directly
 - this keyword is not needed to be used for object literal based code
-- 
-
 */

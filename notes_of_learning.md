@@ -37,26 +37,45 @@
 
 ## 19-2 - File handling tools available as a wrapper (fs.appendFile())
 
-## 20-0 - Buffer class for Data Buffering, Seq. of bytes (binary mode), server side
+## 20 
+Buffer class for Data Buffering, Seq. of bytes (binary mode), server side
 
 - creating Buffer for 10 bytes
--
 - case of over flow
 
-## 20-1 - Events (click is an event, move is an event, key up & key down are events)
+Events (click is an event, move is an event, key up & key down are events)
 
 - Like some component.on (click on component to be used as an event)
 - **Event Emitter** is an existing class to be used
-- How to design?
--
+- How to design such events functionality?
+- 
 
-## 20-2 - Network Programming
+Event Wrapper for Network Programming
 
 - First: Bulb example -- with which bulb event has occurred (source)
 - Second: Network Application (TCP) : meaning Client program - Server program
--
 
-## 21-0 - Cli-Chat Basic Application
 
--
-</content>
+## 21
+Network Application - Cli-Chat Basic Application
+- Basic Client and Server programs
+- Creating a basic chat application using command line
+- Server software to be run first
+    - Server socket to be created
+    - Server socket to be bound to a port (is nothing but like a house number /flat number)
+    - Wait for client to connect / request
+    - Server socket to be listening for connections
+    - Server socket to be connected to a client
+    - Server socket to be disconnected from a client
+    - Server socket to be closed
+- Client software to be run after server software
+    - Client socket to be created
+    - Client socket to be connected to server
+    - Client socket to be disconnected from server
+    - Client socket to be closed
+- Communication between client and server
+    - Client sends message to server
+    - Server receives message from client
+    - Server sends message to client
+    - Client receives message from server
+    
